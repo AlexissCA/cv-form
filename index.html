@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+		<script src="https://kit.fontawesome.com/0a3d5a6a12.js" crossorigin="anonymous"></script>
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+		<link rel="stylesheet" href="styles/style.css" />
+		<link rel="icon" href="styles/logo.ico" />
+		<title>Join Us!</title>
+	</head>
+	<body>
+		<div class="background">
+			<form action="#" class="container" method="POST" enctype="multipart/form-data" novalidate>
+				<h1>CV Application Form</h1>
+				<section id="user-data">
+					<div class="row">
+						<div class="column">
+							<label for="first-name">Your First Name*</label>
+							<input id="first-name" class="required" name="first-name" minlength="2" maxlength="30" autocomplete="given-name" required />
+							<small class="error-msg">First name is required</small>
+						</div>
+						<div class="column">
+							<label for="last-name">Last Name*</label>
+							<input id="last-name" class="required" name="last-name" minlength="2" maxlength="30" autocomplete="family-name" required />
+							<small class="error-msg">Last name is required</small>
+						</div>
+					</div>
+					<div class="row">
+						<div class="column">
+							<label for="email">Email*</label>
+							<input id="email" class="required" name="email" type="email" minlength="5" autocomplete="email" required />
+							<small class="error-msg">Email adress is required</small>
+						</div>
+						<div class="column">
+							<label for="phone">Phone* <span class="info">without country code</span></label>
+							<input
+								id="phone"
+								class="required"
+								name="phone"
+								type="tel"
+								pattern="\d+"
+								minlength="7"
+								maxlength="12"
+								autocomplete="tel-national"
+								required />
+							<small class="error-msg">Phone number is required</small>
+						</div>
+					</div>
+					<hr />
+				</section>
+				<section id="user-address">
+					<label for="street">Your Street Address</label>
+					<input id="street" name="street" maxlength="80" autocomplete="street-address" />
+					<div class="row">
+						<div class="column">
+							<label for="city">City</label>
+							<input id="city" name="city" maxlength="30" autocomplete="address-level2" />
+						</div>
+						<div class="column">
+							<label for="country">Country*</label>
+							<div class="select-parent">
+								<select id="country" class="required" name="country" required></select>
+								<span class="select-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+								<small class="error-msg">Country name is required</small>
+							</div>
+						</div>
+					</div>
+					<hr />
+				</section>
+				<section id="job-details">
+					<div class="row">
+						<div class="column">
+							<label for="position">Applied Position</label>
+							<input id="position" name="position" maxlength="60" />
+						</div>
+						<div class="column start-date">
+							<label for="start-date">Available Start Date*</label>
+							<input id="start-date" class="required" name="start-date" type="date" required />
+							<span class="select-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+							<small class="error-msg">Start date is required</small>
+						</div>
+					</div>
+					<div id="current-employment-status">
+						<h3 class="as-label">Current Employment Status*</h3>
+						<div class="row" id="employment-status" class="required">
+							<div class="group">
+								<input id="employed" name="employment-status-item" type="radio" value="Employed" required />
+								<label for="employed">Employed</label>
+							</div>
+							<div class="group">
+								<input id="unemployed" name="employment-status-item" type="radio" value="Unemployed" />
+								<label for="unemployed">Unemployed</label>
+							</div>
+							<div class="group">
+								<input id="self-employed" name="employment-status-item" type="radio" value="Self-Employed" />
+								<label for="self-employed">Self-Employed</label>
+							</div>
+							<div class="group">
+								<input id="student" name="employment-status-item" type="radio" value="Student" />
+								<label for="student">Student</label>
+							</div>
+							<div class="group">
+								<input id="other" name="employment-status-item" type="radio" value="Other" />
+								<label for="other">Other</label>
+							</div>
+						</div>
+						<small class="error-msg">Employment status is required</small>
+					</div>
+					<hr />
+				</section>
+				<section id="uploads">
+					<div class="upload-group">
+						<div id="upload-resume" class="droparea required">
+							<i class="fa-solid fa-arrow-up-from-bracket"></i>
+							<p>Drop Your Resume Here*</p>
+							<span class="info">Accepted formats: PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX<br />Maximum file size: 3 MB</span>
+							<input id="upload-resume-input" class="file-input single" type="file" accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx" />
+						</div>
+						<small id="upload-resume-msg" class="error-msg">Resume file is required</small>
+					</div>
+					<div class="upload-group">
+						<div id="upload-other" class="droparea">
+							<i class="fa-solid fa-arrow-up-from-bracket"></i>
+							<p>Other Testimonials</p>
+							<span class="info"
+								>Accepted formats: PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX<br />Up to 5 files, maximum files size: 15 MB in total</span
+							>
+							<input id="upload-other-input" class="file-input" type="file" accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx" multiple />
+						</div>
+						<small id="upload-other-msg" class="error-msg">Please attach correct files as specified above</small>
+					</div>
+				</section>
+				<section id="notes-section">
+					<label for="notes">Notes, Questions And Suggestions</label>
+					<textarea id="notes" name="notes" maxlength="1000"></textarea>
+				</section>
+				<button type="submit" class="submit-btn">Submit</button>
+			</form>
+			<footer>
+				<div class="container footer-spacing">
+					<a href="#" class="footer-logo"><i class="fa-regular fa-image"></i> Some Logo</a>
+					<span>Copyright &copy; 2024 Some Company Name</span>
+				</div>
+			</footer>
+		</div>
+		<script type="module" src="js/countrySelect.js"></script>
+		<script type="module" src="js/notesTextArea.js"></script>
+		<script type="module" src="js/dropAreas.js"></script>
+		<script type="module" src="js/main.js"></script>
+	</body>
+</html>
